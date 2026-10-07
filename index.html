@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snug - a cozy place to write</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="logo" href="#">
+      <span class="blob blob-small"><i class="eye"></i><i class="eye"></i></span>
+      Snug
+    </a>
+    <button class="btn btn-primary" id="openWrite">Write a post</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="blob blob-big" aria-hidden="true">
+        <i class="eye"></i><i class="eye"></i>
+        <i class="cheek left"></i><i class="cheek right"></i>
+      </div>
+      <h1>Write something small today.</h1>
+      <p>Snug is a soft place for diaries, recipes, trips and half-formed thoughts. Post it, and see who sends a heart.</p>
+    </section>
+
+    <nav class="filters" id="filters" aria-label="Filter posts by topic"></nav>
+
+    <section class="feed" id="feed" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">Made with love and too much tea.</footer>
+
+  <!-- Write a post -->
+  <dialog id="writeDialog">
+    <form id="writeForm" method="dialog">
+      <h2>New post</h2>
+
+      <label>Your name
+        <input type="text" id="authorInput" maxlength="24" placeholder="e.g. Riya" required>
+      </label>
+
+      <label>Title
+        <input type="text" id="titleInput" maxlength="60" placeholder="Give it a name" required>
+      </label>
+
+      <label>Topic
+        <select id="tagInput">
+          <option>Diary</option>
+          <option>Food</option>
+          <option>Travel</option>
+          <option>Thoughts</option>
+          <option>Art</option>
+        </select>
+      </label>
+
+      <fieldset>
+        <legend>How are you feeling?</legend>
+        <div class="moods" id="moods"></div>
+      </fieldset>
+
+      <label>Your post
+        <textarea id="bodyInput" rows="6" maxlength="1200" placeholder="Start writing..." required></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" id="cancelWrite">Cancel</button>
+        <button type="submit" class="btn btn-primary">Publish</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
